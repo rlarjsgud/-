@@ -54,3 +54,5 @@ if st.button("코디 완성하기"):
         * **매칭:** {shoes}와 {', '.join(acc) if acc else '액세서리 없이 깔끔하게!'}
         """)
         st.success("오늘의 스타일링이 완성되었습니다! 자신 있게 외출하세요!")
+
+st.button("전체 초기화", on_click=reset_all
