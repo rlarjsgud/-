@@ -2,10 +2,10 @@ import streamlit as st
 
 st.markdown("# 앱 UI만들기")
 st.markdown("---")
-user_id = st.text_input("이름", placeholder="example_user")
+user_id = st.text_input("이름", placeholder="이름")
 
 
-st.header("2. 챗봇 설정")
+
 ai_model = st.radio("학년", ["1", "2", "3"], horizontal=True)
 tone = st.selectbox("반", ["1", "2", "3"])
 features = st.multiselect("난이도", ["쉬움", "보통", "어려움",])
