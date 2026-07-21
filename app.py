@@ -6,6 +6,6 @@ if 'count' not in st.session_state:
     st.session_state.count = 2
 
 if st.button("증가"):
-    st.session_state.count += int(st.session_state.count)*2
+    st.session_state.count += int(st.session_state.count)*1
 
 st.markdown(f"## 현재 숫자: {st.session_state.count}")
