@@ -68,7 +68,7 @@ def page_ai_coach():
     st.header("🧐 AI 코치와 대화하기")
     if "messages" not in st.session_state:
         st.session_state.messages = [
-            {"role": "system", "content": "너는 사용자의 영어단어 암기를 도와주는 사람이야 잘 설명하고 도와줘야"}
+            {"role": "system", "content": "너는 사용자의 단어 암기를 도와주는 사람이야 잘 설명하고 도와줘야"}
         ]
         
     for message in st.session_state.messages:
@@ -95,7 +95,7 @@ def page_ai_coach():
 pg = st.navigation([
     st.Page(page_todo, title="모르는 단어", icon="✅"),
     st.Page(page_report, title="외운 단어 정도", icon="📈"),
-    st.Page(page_ai_coach, title="단어들", icon="🧐")], position="top")
+    st.Page(page_ai_coach, title="모르는거 물어보기", icon="🧐")], position="top")
 
 st.title("단어 암기")
 pg.run()
