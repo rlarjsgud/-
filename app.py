@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("카운터 앱")
+st.title("2의 제곱수 카운트)
 
 if 'count' not in st.session_state:
     st.session_state.count = 2
@@ -8,4 +8,4 @@ if 'count' not in st.session_state:
 if st.button("증가"):
     st.session_state.count += int(st.session_state.count)*1
 
-st.markdown(f"## 2의 int(st.session_state.count)제곱: {st.session_state.count}")
+st.markdown(f"## 현재숫자: {st.session_state.count}")
