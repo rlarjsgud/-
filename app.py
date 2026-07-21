@@ -12,7 +12,7 @@ def add_todo():
         st.toast("할 일이 추가되었습니다!")
         st.session_state.todo_input = ""
 
-def page_motto():
+def Page_motto():
     st.header("✅ 2. 오늘의 할 일")
     t.write(f"현재 다짐: **{st.session_state.user_motto}**")
     new_todo = st.text_input("추가할 할 일을 입력하세요", key="todo_input")
@@ -20,7 +20,7 @@ def page_motto():
     if new_todo == "":
         st.warning("할 일을 입력하고 버튼을 눌러주세요!")
 
-def page_todo():
+def Page_todo():
     st.markdown("---")
     for i in range(len(st.session_state.todo_list)):
         col_task, col_btn, col_status = st.columns([4, 1, 1])
@@ -35,7 +35,7 @@ def page_todo():
                 st.write("✅ **달성!**")
 st.markdown("---")
 
-def page__report():
+def Page__report():
     st.header("📈 3. 나의 갓생 지수")
     if not st.session_state.todo_list:
         st.write("아직 등록된 할 일이 없습니다.")
@@ -53,9 +53,9 @@ def page__report():
             st.rerun()
 
 pg = st.navigation([
-    st.Page(page_motto, title="오늘의 다짐", icon="✍️"),
-    st.Page(page_todo, title="오늘의 할 일", icon="✅"),
-    st.Page(page_report, title="나의 갓생 지수", icon="📈")])
+    st.Page(Page_motto, title="오늘의 다짐", icon="✍️"),
+    st.Page(Page_todo, title="오늘의 할 일", icon="✅"),
+    st.Page(Page_report, title="나의 갓생 지수", icon="📈")])
 
 st.title("갓생 살기 플래너")
 pg.run()
