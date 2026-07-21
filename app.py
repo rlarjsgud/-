@@ -5,8 +5,6 @@ ai_client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 if 'todo_list' not in st.session_state:
     st.session_state.todo_list = []
-if 'user_motto' not in st.session_state:
-    st.session_state.user_motto = "오늘도 화이팅!"
 if 'motto_updated' not in st.session_state:
     st.session_state.motto_updated = False
 
@@ -24,16 +22,6 @@ def edit_motto():
         st.session_state.user_motto = motto
         st.session_state.motto_updated = True
         st.rerun()
-
-def page_motto():
-    st.header("📣 1. 오늘의 다짐")
-    st.info(f"현재 다짐: {st.session_state.user_motto}")
-    if st.button("다짐 수정하기"):
-        edit_motto()
-    if st.session_state.motto_updated:
-        st.success("새로운 좌우명이 등록되었습니다!")
-        st.session_state.motto_updated = False
-    st.markdown("---")
 
 def page_todo():
     st.header("✅ 2. 오늘의 할 일")
@@ -58,7 +46,7 @@ def page_todo():
     st.markdown("---")
 
 def page_report():
-    st.header("📈 3. 나의 갓생 지수")
+    st.header("단어")
     if not st.session_state.todo_list:
         st.write("아직 등록된 할 일이 없습니다.")
     else:
@@ -106,10 +94,9 @@ def page_ai_coach():
         st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
 pg = st.navigation([
-    st.Page(page_motto, title="오늘의 다짐", icon="📣"),
     st.Page(page_todo, title="오늘의 할 일", icon="✅"),
     st.Page(page_report, title="나의 갓생 지수", icon="📈"),
     st.Page(page_ai_coach, title="AI 코칭", icon="🧐")], position="top")
 
-st.title("🌱 갓생 살기 플래너")
+st.title("단어 암기")
 pg.run()
