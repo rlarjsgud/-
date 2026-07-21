@@ -25,7 +25,6 @@ def edit_motto():
 
 def page_todo():
     st.header("외울단어")
-    st.write(f"외울단어쓰기: **{st.session_state.user_motto}**")
     new_todo = st.text_input("외울단어를 입력하세요", key="todo_input")
     st.button("추가하기", on_click=add_todo)
     if new_todo == "":
