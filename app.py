@@ -15,14 +15,6 @@ def add_todo():
         st.toast("할 일이 추가되었습니다!")
         st.session_state.todo_input = ""
 
-@st.dialog("오늘의 다짐 수정")
-def edit_motto():
-    motto = st.text_input("나의 한 줄 좌우명을 적어주세요.")
-    if st.button("다짐 저장"):
-        st.session_state.user_motto = motto
-        st.session_state.motto_updated = True
-        st.rerun()
-
 def page_todo():
     st.header("외운단어정도")
     new_todo = st.text_input("외울단어를 입력하세요", key="todo_input")
@@ -58,7 +50,6 @@ def page_report():
         st.metric("오늘의 달성률", f"{progress:.1f}%")
         st.progress(progress / 100)
         if progress == 100:
-            st.balloons()
             st.success("모든 목표를 달성하셨습니다! 🏆")
         if st.button("기록 전체 초기화"):
             st.session_state.todo_list = []
