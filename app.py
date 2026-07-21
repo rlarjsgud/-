@@ -8,6 +8,4 @@ if 'count' not in st.session_state:
 if st.button("X2"):
     st.session_state.count += int(st.session_state.count)*1
 
-if st.buttom("리셋"):
-    st.session_state.count == 2
 st.markdown(f"## 현재숫자: {st.session_state.count}")
