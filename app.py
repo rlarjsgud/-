@@ -24,7 +24,7 @@ def edit_motto():
         st.rerun()
 
 def page_todo():
-    st.header("외울단어")
+    st.header("외운단어정도")
     new_todo = st.text_input("외울단어를 입력하세요", key="todo_input")
     st.button("추가하기", on_click=add_todo)
     if new_todo == "":
@@ -94,7 +94,7 @@ def page_ai_coach():
 
 pg = st.navigation([
     st.Page(page_todo, title="모르는 단어", icon="✅"),
-    st.Page(page_report, title="외울 단어", icon="📈"),
+    st.Page(page_report, title="외운 단어 정도", icon="📈"),
     st.Page(page_ai_coach, title="단어들", icon="🧐")], position="top")
 
 st.title("단어 암기")
