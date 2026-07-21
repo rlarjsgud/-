@@ -25,10 +25,19 @@ def edit_motto():
         st.session_state.motto_updated = True
         st.rerun()
 
+def page_motto():
+    st.header("📣 1. 오늘의 다짐")
+    st.info(f"현재 다짐: {st.session_state.user_motto}")
+    if st.button("다짐 수정하기"):
+        edit_motto()
+    if st.session_state.motto_updated:
+        st.success("새로운 좌우명이 등록되었습니다!")
+        st.session_state.motto_updated = False
+    st.markdown("---")
 
-def page_a():
-    st.header("모르는 단어")
-    st.write(f"영어단어: **{st.session_state.user_motto}**")
+def page_todo():
+    st.header("✅ 2. 오늘의 할 일")
+    st.write(f"현재 다짐: **{st.session_state.user_motto}**")
     new_todo = st.text_input("추가할 할 일을 입력하세요", key="todo_input")
     st.button("추가하기", on_click=add_todo)
     if new_todo == "":
