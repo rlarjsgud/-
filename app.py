@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("2의 제곱수 카운트)
+st.title("2의 제곱수 카운트")
 
 if 'count' not in st.session_state:
     st.session_state.count = 2
