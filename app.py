@@ -35,7 +35,7 @@ def Page_todo():
                 st.write("✅ **달성!**")
 st.markdown("---")
 
-def Page__report():
+def Page_report():
     st.header("📈 3. 나의 갓생 지수")
     if not st.session_state.todo_list:
         st.write("아직 등록된 할 일이 없습니다.")
