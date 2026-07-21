@@ -48,7 +48,7 @@ def page_todo():
 def page_report():
     st.header("단어")
     if not st.session_state.todo_list:
-        st.write("아직 등록된 할 일이 없습니다.")
+        st.write("아직 등록된 단어가 없습니다.")
     else:
         total = len(st.session_state.todo_list)
         count = 0
@@ -69,7 +69,7 @@ def page_ai_coach():
     st.header("🧐 AI 코치와 대화하기")
     if "messages" not in st.session_state:
         st.session_state.messages = [
-            {"role": "system", "content": "너는 사용자의 할 일 목록과 달성 정도를 분석하여 조언하는 열정적인 코치야. 사용자가 더 멋진 삶을 살 수 있도록 명확한 조언과 응원해줘."}
+            {"role": "system", "content": "너는 사용자의 영어단어 암기를 도와주는 사람이야 잘 설명하고 도와줘야"}
         ]
         
     for message in st.session_state.messages:
@@ -83,9 +83,9 @@ def page_ai_coach():
         with st.chat_message("user"):
             st.markdown(question)
         with st.chat_message("assistant"):
-            status_context = f"현재 나의 할 일과 달성 여부: {st.session_state.todo_list}"
+            status_context = f"현재 나의 단어암기 달성 여부: {st.session_state.todo_list}"
             prompt = st.session_state.messages + [{"role": "system", "content": status_context}]
-            with st.spinner("AI 코치가 생각 중...🤔"):
+            with st.spinner("내가 생각 중...🤔"):
                 response = ai_client.chat.completions.create(
                     model="gpt-5.4-mini",
                     messages=prompt)
@@ -94,9 +94,9 @@ def page_ai_coach():
         st.session_state.messages.append({"role": "assistant", "content": ai_response})
 
 pg = st.navigation([
-    st.Page(page_todo, title="오늘의 할 일", icon="✅"),
-    st.Page(page_report, title="나의 갓생 지수", icon="📈"),
-    st.Page(page_ai_coach, title="AI 코칭", icon="🧐")], position="top")
+    st.Page(page_todo, title="모르는 단어", icon="✅"),
+    st.Page(page_report, title="외울 단어", icon="📈"),
+    st.Page(page_ai_coach, title="단어들", icon="🧐")], position="top")
 
 st.title("단어 암기")
 pg.run()
