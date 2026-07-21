@@ -12,7 +12,7 @@ def add_todo():
         st.toast("할 일이 추가되었습니다!")
         st.session_state.todo_input = ""
 
-def Page_motto():
+def page_motto():
     st.header("✅ 2. 오늘의 할 일")
     t.write(f"현재 다짐: **{st.session_state.user_motto}**")
     new_todo = st.text_input("추가할 할 일을 입력하세요", key="todo_input")
@@ -20,7 +20,7 @@ def Page_motto():
     if new_todo == "":
         st.warning("할 일을 입력하고 버튼을 눌러주세요!")
 
-def Page_todo():
+def page_todo():
     st.markdown("---")
     for i in range(len(st.session_state.todo_list)):
         col_task, col_btn, col_status = st.columns([4, 1, 1])
@@ -35,7 +35,7 @@ def Page_todo():
                 st.write("✅ **달성!**")
 st.markdown("---")
 
-def Page_report():
+def page_report():
     st.header("📈 3. 나의 갓생 지수")
     if not st.session_state.todo_list:
         st.write("아직 등록된 할 일이 없습니다.")
