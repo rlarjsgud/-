@@ -46,7 +46,7 @@ def page__report():
             if item[1] == True:
                 count += 1
         progress = (count / total) * 100
-       st.metric("오늘의 달성률", f"{progress:.1f}%")
+        st.metric("오늘의 달성률", f"{progress:.1f}%")
         st.progress(progress / 100)
         if st.button("기록 전체 초기화"):
             st.session_state.todo_list = []
